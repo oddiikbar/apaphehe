@@ -11,4 +11,6 @@ import java.util.List;
 public interface JabatanPegawaiDb extends JpaRepository<JabatanPegawaiModel, Long>{
     @Query(value="SELECT * FROM jabatan_pegawai WHERE id_pegawai = :id", nativeQuery = true)
     List<JabatanPegawaiModel> findJabatanPegawaiModelsById_pegawai(@Param("id") Long id);
+
+    JabatanPegawaiModel save(JabatanPegawaiModel jabatanPegawaiModel);
 }

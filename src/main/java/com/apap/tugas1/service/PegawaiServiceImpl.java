@@ -37,10 +37,12 @@ public class PegawaiServiceImpl implements PegawaiService {
 
 		List<PegawaiModel> pegawaiModels = pegawaiDb.findPegawaiModelsById_instansiAndAndTahun_masukAndAndTanggal_lahirOrderByNipDesc(
 				pegawai.id_instansi, tahunmasuk, pegawai.tanggal_lahir);
-		System.out.println("models nii" + pegawaiModels);
+		System.out.println("models nii" + new Gson().toJson(pegawaiModels));
 		if(!pegawaiModels.isEmpty()) {
 			System.out.println("oke ada nih pegawainya");
-			String digitterakhir = pegawaiModels.get(0).getNip();
+			Integer lastindex = pegawaiModels.size();
+			System.out.println("lastindex = "+ lastindex);
+			String digitterakhir = pegawaiModels.get(lastindex-1).getNip();
 			String inidia = digitterakhir.substring(14,16);
 			Integer yes = Integer.parseInt(inidia);
 			lastdigit = yes +1;

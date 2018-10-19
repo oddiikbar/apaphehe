@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface JabatanPegawaiService {
     List<JabatanPegawaiModel> getJabatanPegawaiListByIdPegawai(Long idPegawai);
+
+    void addJabatanPegawai(JabatanPegawaiModel jabatanPegawaiModel);
 }

@@ -106,6 +106,13 @@ public class PegawaiController {
 		String nippegawaibaru = pegawaiModel.getNip();
 		pegawaiService.addPegawai(pegawaiModel);
 
+		PegawaiModel pegawaibaru = pegawaiService.getPegawaiDetailByNip(nippegawaibaru);
+		Integer idjabatan = pegawai.getId_jabatan();
+		JabatanPegawaiModel jabatanPegawaiBaru = new JabatanPegawaiModel();
+		jabatanPegawaiBaru.setId_jabatan(Long.valueOf(idjabatan));
+		jabatanPegawaiBaru.setId_pegawai(pegawaibaru.getId());
+
+		jabatanPegawaiService.addJabatanPegawai(jabatanPegawaiBaru);
 		model.addAttribute("nipbaru", nippegawaibaru);
 		return "success-add";
 	}
